@@ -1,5 +1,13 @@
 @import url(normalize.css);
 
+.wrapper {
+  min-height: 100%;
+}
+
+body._lock {
+  overflow: hidden;
+}
+
 .page {
   padding: 90px 0px 30px 0px;
 }
@@ -25,7 +33,7 @@
   font-size: 16px;
   line-height: 150%;
 }
-.page__text p{
+.page__text p {
   margin: 0px 0px 20px 0px;
 }
 
@@ -57,9 +65,9 @@
   border-radius: 50%;
   background-color: #fff;
   position: relative;
-  z-index: 5;
   width: 40px;
   height: 40px;
+  z-index: 5;
 }
 
 .header__menu {
@@ -71,7 +79,7 @@
 }
 
 .menu__icon {
-  
+  display:none;
 }
 
 .menu__body {
@@ -142,17 +150,18 @@ body._touch .menu__list > li {
 
 body._touch .menu__link {
   flex: 1 1 auto;
-  
 }
 
 body._touch .menu__arrow {
   display: block;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
+  margin: 0px 0px 0px 7px;
+  transition: transform 0.3s ease 0s;
   border-left: 5px solid transparent;  // створюємо трикутник
   border-right: 5px solid transparent; // за допомогою
   border-top: 10px solid #fff;       // бордерів
-  transition: transform 0.3s ease 0s;
+
 }
 
 body._touch .menu__list > li._active .menu__sub-list {  // показ меню сторінки 1 для мобілок
@@ -174,14 +183,123 @@ body._touch .menu__list > li._active .menu__arrow {
     display: flex;
     align-items: center;
   }
-  .menu__list > li {
+  .menu__list > li {  // закрили дірку між Сторінка1 і його меню
     padding: 10px 0;
   }
   .menu__sub-list {
     transform: translate(0px, 10%);
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
+    pointer-events: none;  // неможливість "ловити" меню без натискання на Сторінку1
     transition: all 0.3s ease 0s;
+  }
+}
+
+@media (max-width: 766px) {   // для екранів вужчих 767 пікселів
+  .menu__icon {               // власне бургер
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 18px;
+    z-index: 5;
+    cursor: pointer;
+  }
+  .menu__icon span,
+  .menu__icon::before, 
+  .menu__icon::after {
+    left: 0;
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    transition: all 0.3s ease 0s;
+    background-color: #fff;
+  } 
+
+  .menu__icon::before, 
+  .menu__icon::after {
+    content: "";
+  }
+
+  .menu__icon::before {
+    top: 0;
+  } 
+  .menu__icon::after {
+    bottom: 0;
+  }
+
+  .menu__icon span {
+    top: 50%;
+    transform: scale(1) translate(0px, -50%)
+  }
+
+  .menu__icon._active span{
+    transform: scale(0) translate(0, -50%);
+  }
+
+  .menu__icon._active::before{
+    top: 50%;
+    transform: rotate(-45deg) translate(0px, -50%);
+  }
+
+  .menu__icon._active::after{
+    bottom: 50%;
+    transform: rotate(45deg) translate(0px, -50%);
+  }
+
+
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: 0;  
+    // scroll bugfix p.1: left: -100% and delete transform here
+    width: 100%;
+    height: 100%;
+    transform: translate(-100%, 0px);
+    background-color: rgb(0, 0, 0, 0.9);
+    padding: 100px 30px 30px 30px;
+    transition: all 0.3s ease 0s;  // scroll bugfix p.2: transition: left 0.3s ease 0s;
+    overflow: auto;  // додаєм можливість скрола
+  }
+
+  .menu__body._active {
+    transform: translate(0px, 0px);
+    // scroll bugfix p.3: left: 0 and delete transform here
+  }
+
+  .menu__body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 70px;
+    background-color: #912105;
+    z-index: 2;
+  }
+
+  .menu__list > li{
+    flex-wrap: wrap;   // дозволяєм флек елементам переходити на нову строку
+    margin: 0px 0px 30px 0px;
+  }
+  .menu__list > li:last-child {
+    margin-bottom: 0;
+  }
+  .menu__list > li._active .menu__sub-list{
+    display: block;
+  }
+
+  .menu__link {
+    font-size: 24px;
+  }
+  .menu__sub-list {
+    position: relative;
+    background-color: #fff;
+    flex: 1 1 100%;   // маніпуляції з роміщенням флекс алементів
+    margin: 20px 0px 0px 0px;
+    display: none;
+  }
+  .menu__sub-link {
+    font-size: 20px;
+    color:#000;
   }
 }
