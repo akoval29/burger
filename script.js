@@ -1,5 +1,4 @@
 "use strict";
-
 // Код, який встановлює на якому саме пристрої було відкрито цей застосунок
 const isMobile = {
   Android: function () {
@@ -31,7 +30,9 @@ const isMobile = {
   }
 };
 
-// далі код по нашій темі
+
+
+// надаєм body клас _touch або _pc
 if (isMobile.any()) {
   document.body.classList.add('_touch');
 
@@ -49,20 +50,23 @@ if (isMobile.any()) {
 }
 
 
+
 // Меню бургер
 const iconMenu = document.querySelector('.menu__icon');
 const menuBody = document.querySelector('.menu__body');
 if (iconMenu) {
-  iconMenu.addEventListener("Click", function (e) {
+  iconMenu.addEventListener("click", function (e) {
     document.body.classList.toggle('_lock');
     iconMenu.classList.toggle('_active');
     menuBody.classList.toggle('_active');
-  });
+  })
 }
+
+
 
 // прокрутка до потрібної сторінки
 const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
-if (menuLinks.length > 0) {
+if (menuLinks) {
   menuLinks.forEach(menuLink => {
     menuLink.addEventListener("click", onMenuLinkClick);
   });
