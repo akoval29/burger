@@ -181,8 +181,8 @@ body._touch .menu__list > li._active .menu__arrow {
   .menu__icon {
     display: block;
     position: relative;
-    width: 30px;
-    height: 18px;
+    width: 40px;
+    height: 20px;
     z-index: 5;
     cursor: pointer;
   }
@@ -191,7 +191,7 @@ body._touch .menu__list > li._active .menu__arrow {
 .menu__icon::after {
     left: 0;
     position: absolute;
-    height: 10%;
+    height: 15%;
     width: 100%;
     transition: all 0.3s ease 0s;
     background-color: #fff;
@@ -214,11 +214,11 @@ body._touch .menu__list > li._active .menu__arrow {
     transform: scale(0) translate(0, -50%);
   }
   .menu__icon._active::before {
-    top: 50%;
+    top: 45%;
     transform: rotate(-45deg) translate(0px, -50%);
   }
   .menu__icon._active::after {
-    bottom: 50%;
+    bottom: 45%;
     transform: rotate(45deg) translate(0px, -50%);
   }
   .menu__body {
