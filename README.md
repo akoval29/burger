@@ -5,5 +5,5 @@
 - **HTML**
 - **CSS**
   
-# Original author of this code
+## Original author of this code
 https://www.facebook.com/freelancerlifestyle
