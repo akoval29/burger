@@ -10,27 +10,27 @@ body._lock {
 
 .page {
   padding: 90px 0px 30px 0px;
-  &__section{
+  &__section {
     padding: 30px;
     max-width: 1200px;
     margin: 0px auto;
     &_1 {
       background-color: #794f45;
     }
-    
+
     &_2 {
       background-color: #77608d;
     }
-    
+
     &_3 {
       background-color: #7a956b;
     }
   }
-  .page__title{
+  .page__title {
     font-size: 40px;
     margin: 0px 0px 20px 0px;
   }
-  .page__text{
+  .page__text {
     font-size: 16px;
     line-height: 150%;
     p {
@@ -67,7 +67,7 @@ body._lock {
 
 .menu__list {
   li {
-    position: relative;       // закриваєм дірку між ховер
+    position: relative; // закриваєм дірку між ховер
     margin: 0px 0px 0px 20px; // елементом і саб меню Сторінки 1
     .menu__arrow {
       display: none;
@@ -76,7 +76,7 @@ body._lock {
   .menu__link {
     color: #fff;
     font-size: 18px;
-    &:hover{
+    &:hover {
       text-decoration: underline;
     }
   }
@@ -153,15 +153,16 @@ body {
   }
 }
 
-
 //  -----------------------------  //
 
-@media (min-width: 768px) {  // для екранів ширших 767 пікселів
+@media (min-width: 768px) {
+  // для екранів ширших 767 пікселів
   .menu__list {
     display: flex;
     align-items: center;
-    
-    li {  // закрили дірку між Сторінка1 і його меню
+
+    li {
+      // закрили дірку між Сторінка1 і його меню
       padding: 10px 0;
     }
   }
@@ -170,12 +171,13 @@ body {
     transform: translate(0px, 10%);
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;  // неможливість "ловити" меню без натискання на Сторінку1
+    pointer-events: none; // неможливість "ловити" меню без натискання на Сторінку1
     transition: all 0.3s ease 0s;
   }
 }
 
-@media (max-width: 767px) {   // для екранів вужчих 767 пікселів
+@media (max-width: 767px) {
+  // для екранів вужчих 767 пікселів
   .header__menu__icon {
     display: block;
     position: relative;
@@ -194,35 +196,35 @@ body {
       transition: all 0.3s ease 0s;
       background-color: #fff;
     }
-    
+
     &::before,
     &::after {
       content: "";
     }
-    
+
     &::before {
       top: 0;
     }
-    
+
     &::after {
       bottom: 0;
     }
-    
+
     span {
       top: 50%;
       transform: scale(1) translate(0px, -50%);
     }
-    
+
     &._active {
       span {
         transform: scale(0) translate(0, -50%);
       }
-      
+
       &::before {
         top: 45%;
         transform: rotate(-45deg) translate(0px, -50%);
       }
-      
+
       &::after {
         bottom: 45%;
         transform: rotate(45deg) translate(0px, -50%);
@@ -240,11 +242,11 @@ body {
     padding: 100px 30px 30px;
     transition: left 0.3s ease;
     overflow: auto;
-  
+
     &._active {
       left: 0;
     }
-  
+
     &::before {
       content: "";
       position: fixed;
@@ -255,7 +257,7 @@ body {
       background-color: #912105;
       z-index: 2;
     }
-  
+
     .menu__list > li {
       flex-wrap: wrap;
       margin: 0 0 30px;
@@ -268,11 +270,11 @@ body {
         display: block;
       }
     }
-  
+
     .menu__link {
       font-size: 24px;
     }
-  
+
     .menu__sub-list {
       position: relative;
       background-color: #fff;
