@@ -8,4 +8,4 @@
 - **CSS**
   
 ## Original author of this code
-https://www.facebook.com/freelancerlifestyle
+[Freelancerlifestyle - GitHub](https://github.com/FreelancerLifeStyle)
