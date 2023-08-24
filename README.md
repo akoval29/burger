@@ -7,5 +7,5 @@
 - **HTML**
 - **CSS**
   
-## Original author of this code
+## My thanks
 [Freelancerlifestyle - GitHub](https://github.com/FreelancerLifeStyle)
